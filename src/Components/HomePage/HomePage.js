@@ -6,6 +6,8 @@ import {
   MenuOutlined,
   UserOutlined
 } from '@ant-design/icons';
+import About from '../About/About.js';
+import BreadcrumbItem from 'antd/lib/breadcrumb/BreadcrumbItem';
 
 const { Header, Content, Sider } = Layout;
 const { SubMenu } = Menu;
@@ -13,7 +15,7 @@ const { SubMenu } = Menu;
 export default class HomePage extends React.Component {
   state = {
     collapsed: false,
-    currentPage: ""
+    currentPage: "About"
   };
 
   onCollapse = collapsed => {
@@ -23,14 +25,14 @@ export default class HomePage extends React.Component {
 
   handleAboutClick = () => {
     this.setState({
-      currentPage: "about"
+      currentPage: "About"
     });
   };
 
   render() {
     let page;
-    if (this.state.currentPage === "about") {
-      page = <div>about page</div>
+    if (this.state.currentPage === "About") {
+      page = <About/>
     }
     else {
       page = <div>another page</div>
@@ -129,8 +131,7 @@ export default class HomePage extends React.Component {
           <Content style={{ margin: '0 16px' }}>
 
             <Breadcrumb style={{ margin: '16px 0' }}>
-              <Breadcrumb.Item>Not</Breadcrumb.Item>
-              <Breadcrumb.Item>Implemented</Breadcrumb.Item>
+              <BreadcrumbItem>Breadcrumb</BreadcrumbItem>
             </Breadcrumb>
 
             <div className="site-layout-background" style={{ padding: 24, minHeight: 360 }}>
