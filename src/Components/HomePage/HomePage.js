@@ -7,7 +7,7 @@ import {
   UserOutlined
 } from '@ant-design/icons';
 import About from '../About/About.js';
-import BreadcrumbItem from 'antd/lib/breadcrumb/BreadcrumbItem';
+import LiftFlow from '../LiftFlow/LiftFlow.js';
 
 const { Header, Content, Sider } = Layout;
 const { SubMenu } = Menu;
@@ -29,10 +29,19 @@ export default class HomePage extends React.Component {
     });
   };
 
+  handleLiftFlowClick = () => {
+    this.setState({
+      currentPage: "LiftFlow"
+    });
+  };
+
   render() {
     let page;
     if (this.state.currentPage === "About") {
       page = <About/>
+    }
+    else if (this.state.currentPage === "LiftFlow") {
+      page = <LiftFlow/>
     }
     else {
       page = <div>another page</div>
@@ -40,7 +49,19 @@ export default class HomePage extends React.Component {
 
     return (
       <Layout style={{ minHeight: '100vh' }}>
-        <Sider collapsible collapsed={this.state.collapsed} onCollapse={this.onCollapse} breakpoint="xl" width="400">
+        <Sider 
+          collapsible 
+          collapsed={this.state.collapsed} 
+          onCollapse={this.onCollapse}
+          breakpoint="xl" 
+          width="400"
+          style={{
+            overflow: 'auto',
+            position: 'fixed',
+            height: '100vh',
+            left: 0,
+          }}
+        >
           {this.state.collapsed===true ?
             <div className="logo-collapsed">
               BA
@@ -57,7 +78,7 @@ export default class HomePage extends React.Component {
 
             <SubMenu key="categories" icon={<MenuOutlined />} title="Categories">
               <SubMenu key="appDev" title="App Development">
-                <Menu.Item key="2">Fully Developed iOS App - Lift Flow</Menu.Item>
+                <Menu.Item key="2" onClick={this.handleLiftFlowClick}>Fully Developed iOS App - Lift Flow</Menu.Item>
                 <Menu.Item key="6">React.JS - This Portfolio</Menu.Item>
                 <Menu.Item key="3">Mobile App to Web API - Workout Tracker</Menu.Item>
                 <Menu.Item key="4">Android Development Project - Com S 309</Menu.Item>
@@ -92,7 +113,7 @@ export default class HomePage extends React.Component {
                 <Menu.Item key="26">iOS Development - Workout App</Menu.Item>
                 <Menu.Item key="27">Python - Alien Invasion Game</Menu.Item>
               </SubMenu>
-              <SubMenu key="lowLevel" title="Low Level (C, Assembly, VHDL">
+              <SubMenu key="lowLevel" title="Low Level (C, Assembly, VHDL)">
                 <Menu.Item key="28">Intro to Computer Eng. and Problem Solving - CPRE 185</Menu.Item>
                 <Menu.Item key="29">Digital Logic - CPRE 281</Menu.Item>
                 <Menu.Item key="30">Labs 5 and 6 - CPRE 288</Menu.Item>
@@ -125,21 +146,38 @@ export default class HomePage extends React.Component {
             </SubMenu>
           </Menu>
         </Sider>
+        
+        {this.state.collapsed === true ?
+          <Layout className="site-layout" style={{marginLeft:80}}>
+            <Header className="site-layout-background" style={{ padding: 0 }} />
+            <Content style={{ margin: '0 16px' }}>
 
-        <Layout className="site-layout">
-          <Header className="site-layout-background" style={{ padding: 0 }} />
-          <Content style={{ margin: '0 16px' }}>
+              <Breadcrumb style={{ margin: '16px 0' }}>
+                <Breadcrumb.Item>Breadcrumb</Breadcrumb.Item>
+              </Breadcrumb>
 
-            <Breadcrumb style={{ margin: '16px 0' }}>
-              <BreadcrumbItem>Breadcrumb</BreadcrumbItem>
-            </Breadcrumb>
+              <div className="site-layout-background" style={{ padding: 24, minHeight: 360 }}>
+                {page}
+              </div>
 
-            <div className="site-layout-background" style={{ padding: 24, minHeight: 360 }}>
-              {page}
-            </div>
+            </Content>
+          </Layout>
+          :
+          <Layout className="site-layout" style={{marginLeft:400}}>
+            <Header className="site-layout-background" style={{ padding: 0 }} />
+            <Content style={{ margin: '0 16px' }}>
 
-          </Content>
-        </Layout>
+              <Breadcrumb style={{ margin: '16px 0' }}>
+                <Breadcrumb.Item>Breadcrumb</Breadcrumb.Item>
+              </Breadcrumb>
+
+              <div className="site-layout-background" style={{ padding: 24, minHeight: 360 }}>
+                {page}
+              </div>
+
+            </Content>
+          </Layout>
+        }
       </Layout>
     );
   }

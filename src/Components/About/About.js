@@ -4,7 +4,6 @@ import './About.css';
 import photo from './composite2019.jpg';
 
 const Title = Typography.Title;
-const Paragraph = Typography.Paragraph;
 
 export default class About extends React.Component {
     render() {
@@ -25,10 +24,10 @@ export default class About extends React.Component {
                         <Title level={4} className="title">Specialties:</Title>
                         iOS Development, Java Springboot, Google Cloud Platform, MySQL
                         <Title level={4} className="title">Familier With:</Title>
-                        React.JS, .NET Framework, Python, Android development
+                        React.JS, .NET Framework, Python, Android Development
                     </Col>
                     <Col span={8}>
-                        <img width='100%' src={photo} className="photo"/>
+                        <img width='100%' src={photo} className="photo" alt=''/>
                     </Col>
                 </Row>
             </>
