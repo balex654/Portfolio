@@ -23,22 +23,22 @@ export default class LiftFlow extends React.Component {
                     <Col span={18}>
                         <Title level={1}>Lift Flow</Title>
                         <Title level={4}>Technologies: Swift, Xcode, Java Springboot, MySQL, Google Cloud Platform</Title>
-                            Lift Flow is an iOS app that allows the user to create an account, make customized workout plans,
-                            track their workouts, view graphical data of their performance, share workout plans with other
-                            Lift Flow users, and be motivated by competition between their friends with a leaderboard. It's essentially
-                            a refined version of both of my previous iOS projects. Before using this app, I used an Excel spreadsheet to enter
-                            weight lifting data. The problem was that it wasn't very easy to enter data during a workout or view
-                            my trends over time. I also didn't have a way to easily share my workout plans.
-                            Lift Flow solves these problems. After beta testing on TestFlight and working with Apple through
-                            their review process, Lift Flow is now available on the App Store.  
-                            <a href="https://apps.apple.com/us/app/lift-flow/id1524340982" target="_blank" rel="noopener noreferrer"> Click here to view it.</a>
-                            <br></br><br></br>
-                            Lift Flow is composed of a frontend and backend component. The frontend is, of course, iOS and the
-                            backend I wrote with Java Springboot. I deployed the Springboot project to an App Engine server instance
-                            on Google Cloud Platform (GCP). The server then communicates with a MySQL database which is also
-                            provided by GCP. I also implemented security measures such as user password encryption and server API
-                            authentication.
-                            <br></br><br></br>
+                        Lift Flow is an iOS app that allows the user to create an account, make customized workout plans,
+                        track their workouts, view graphical data of their performance, share workout plans with other
+                        Lift Flow users, and be motivated by competition between their friends with a leaderboard. It's essentially
+                        a refined version of both of my previous iOS projects. Before using this app, I used an Excel spreadsheet to enter
+                        weight lifting data. The problem was that it wasn't very easy to enter data during a workout or view
+                        my trends over time. I also didn't have a way to easily share my workout plans.
+                        Lift Flow solves these problems. After beta testing on TestFlight and working with Apple through
+                        their review process, Lift Flow is now available on the App Store.  
+                        <a href="https://apps.apple.com/us/app/lift-flow/id1524340982" target="_blank" rel="noopener noreferrer"> Click here to view it.</a>
+                        <br></br><br></br>
+                        Lift Flow is composed of a frontend and backend component. The frontend is, of course, iOS and the
+                        backend I wrote with Java Springboot. I deployed the Springboot project to an App Engine server instance
+                        on Google Cloud Platform (GCP). The server then communicates with a MySQL database which is also
+                        provided by GCP. I also implemented security measures such as user password encryption and server API
+                        authentication.
+                        <br></br><br></br>
                     </Col>
                 </Row>
 

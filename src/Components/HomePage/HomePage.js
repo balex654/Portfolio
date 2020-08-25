@@ -4,10 +4,12 @@ import './HomePage.css';
 import { Layout, Menu, Breadcrumb } from 'antd';
 import {
   MenuOutlined,
-  UserOutlined
+  UserOutlined,
+  StarOutlined,
 } from '@ant-design/icons';
 import About from '../About/About.js';
 import LiftFlow from '../LiftFlow/LiftFlow.js';
+import WorkoutTracker from '../WorkoutTracker/WorkoutTracker.js';
 
 const { Header, Content, Sider } = Layout;
 const { SubMenu } = Menu;
@@ -19,7 +21,6 @@ export default class HomePage extends React.Component {
   };
 
   onCollapse = collapsed => {
-    console.log(collapsed);
     this.setState({ collapsed });
   };
 
@@ -29,22 +30,45 @@ export default class HomePage extends React.Component {
     });
   };
 
+  handleCategoriesClick = () => {
+    this.setState({
+      
+    });
+  }
+
   handleLiftFlowClick = () => {
     this.setState({
-      currentPage: "LiftFlow"
+      currentPage: "Categories/AppDev/LiftFlow"
     });
   };
 
+  handleAppDevWorkoutTrackerClick = () => {
+    this.setState({
+      currentPage: "Categories/AppDev/WorkoutTracker"
+    });
+  }
+
   render() {
     let page;
+    let width;
     if (this.state.currentPage === "About") {
       page = <About/>
     }
-    else if (this.state.currentPage === "LiftFlow") {
+    else if (this.state.currentPage === "Categories/AppDev/LiftFlow") {
       page = <LiftFlow/>
+    }
+    else if (this.state.currentPage === "Categories/AppDev/WorkoutTracker") {
+      page = <WorkoutTracker/>
     }
     else {
       page = <div>another page</div>
+    }
+
+    if (this.state.collapsed === true) {
+      width = 80;
+    }
+    else {
+      width = 400;
     }
 
     return (
@@ -72,15 +96,17 @@ export default class HomePage extends React.Component {
             </div>
           }
           <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
+            <Menu.Item disabled={true}>Star = Personal Project</Menu.Item>
+            <Menu.Divider/>
             <Menu.Item key="1" icon={<UserOutlined />} onClick={this.handleAboutClick}>
               About
             </Menu.Item>
 
-            <SubMenu key="categories" icon={<MenuOutlined />} title="Categories">
+            <SubMenu key="categories" icon={<MenuOutlined />} title="Categories" onClick={this.handleCategoriesClick}>
               <SubMenu key="appDev" title="App Development">
-                <Menu.Item key="2" onClick={this.handleLiftFlowClick}>Fully Developed iOS App - Lift Flow</Menu.Item>
+                <Menu.Item key="2" onClick={this.handleLiftFlowClick} icon={<StarOutlined/>}>Fully Developed iOS App - Lift Flow</Menu.Item>
                 <Menu.Item key="6">React.JS - This Portfolio</Menu.Item>
-                <Menu.Item key="3">Mobile App to Web API - Workout Tracker</Menu.Item>
+                <Menu.Item key="3"onClick={this.handleAppDevWorkoutTrackerClick} icon={<StarOutlined/>}>Mobile App to Web API - Workout Tracker</Menu.Item>
                 <Menu.Item key="4">Android Development Project - Com S 309</Menu.Item>
                 <Menu.Item key="5">Database Management Systems - Com S 363</Menu.Item>
                 <Menu.Item key="7">iOS Development - Workout App</Menu.Item>
@@ -104,8 +130,8 @@ export default class HomePage extends React.Component {
                 <Menu.Item key="19">Database Management Systems - Com S 363</Menu.Item>
                 <Menu.Item key="20">Mobile App to Web API - Workout Tracker</Menu.Item>
               </SubMenu>
-              <SubMenu key="personalProjects" title="Personal Projects">
-                <Menu.Item key="21">Fully Developed iOS App - Lift Flow</Menu.Item>
+              <SubMenu key="personalProjects" title="Personal Projects" icon={<StarOutlined/>}>
+                <Menu.Item key="21">Lift Flow - Fully Developed iOS App</Menu.Item>
                 <Menu.Item key="22">React.JS - This Portfolio</Menu.Item>
                 <Menu.Item key="23">Mobile App to Web API - Workout Tracker</Menu.Item>
                 <Menu.Item key="24">Amazon Web Services - Web API</Menu.Item>
@@ -147,37 +173,30 @@ export default class HomePage extends React.Component {
           </Menu>
         </Sider>
         
-        {this.state.collapsed === true ?
-          <Layout className="site-layout" style={{marginLeft:80}}>
-            <Header className="site-layout-background" style={{ padding: 0 }} />
-            <Content style={{ margin: '0 16px' }}>
+        <Layout className="site-layout" style={{marginLeft:width}}>
+          <Header className="site-layout-background" style={{ padding: 0 }} />
+          <Content style={{ margin: '0 16px' }}>
 
+            {this.state.currentPage === "Categories/AppDev/LiftFlow" && 
               <Breadcrumb style={{ margin: '16px 0' }}>
-                <Breadcrumb.Item>Breadcrumb</Breadcrumb.Item>
+                <Breadcrumb.Item>Categories</Breadcrumb.Item>
+                <Breadcrumb.Item>App Development</Breadcrumb.Item>
+                <Breadcrumb.Item>Lift Flow - Fully Developed iOS App</Breadcrumb.Item>
               </Breadcrumb>
-
-              <div className="site-layout-background" style={{ padding: 24, minHeight: 360 }}>
-                {page}
-              </div>
-
-            </Content>
-          </Layout>
-          :
-          <Layout className="site-layout" style={{marginLeft:400}}>
-            <Header className="site-layout-background" style={{ padding: 0 }} />
-            <Content style={{ margin: '0 16px' }}>
-
-              <Breadcrumb style={{ margin: '16px 0' }}>
-                <Breadcrumb.Item>Breadcrumb</Breadcrumb.Item>
+            }
+            {this.state.currentPage === "Categories/AppDev/WorkoutTracker" &&
+              <Breadcrumb style={{margin: '16px 0'}}>
+                <Breadcrumb.Item>Categories</Breadcrumb.Item>
+                <Breadcrumb.Item>App Development</Breadcrumb.Item>
+                <Breadcrumb.Item>Mobile App to Web API - Workout Tracker</Breadcrumb.Item>
               </Breadcrumb>
-
-              <div className="site-layout-background" style={{ padding: 24, minHeight: 360 }}>
-                {page}
-              </div>
-
-            </Content>
-          </Layout>
-        }
+            }
+            
+            <div className="site-layout-background" style={{ padding: 24, minHeight: 360 }}>
+              {page}
+            </div>
+          </Content>
+        </Layout>
       </Layout>
     );
   }
