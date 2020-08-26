@@ -10,6 +10,10 @@ import {
 import About from '../About/About.js';
 import LiftFlow from '../LiftFlow/LiftFlow.js';
 import WorkoutTracker from '../WorkoutTracker/WorkoutTracker.js';
+import ComS309 from '../ComS309/ComS309.js';
+import ReactPortfolio from '../ReactPortfolio/ReactPortfolio.js';
+import ComS363 from '../ComS363/ComS363.js';
+import WorkoutApp from '../WorkoutApp/WorkoutApp.js';
 
 const { Header, Content, Sider } = Layout;
 const { SubMenu } = Menu;
@@ -30,21 +34,89 @@ export default class HomePage extends React.Component {
     });
   };
 
-  handleCategoriesClick = () => {
-    this.setState({
-      
-    });
-  }
-
-  handleLiftFlowClick = () => {
+  handleAppDevLiftFlowClick = () => {
     this.setState({
       currentPage: "Categories/AppDev/LiftFlow"
     });
   };
+  handlePPLiftFlowClick = () => {
+    this.setState({
+      currentPage: "Categories/PersonalProjects/LiftFlow"
+    });
+  }
+  handleDBLiftFlowClick = () => {
+    this.setState({
+      currentPage: "Categories/DBMS/LiftFlow"
+    });
+  }
 
   handleAppDevWorkoutTrackerClick = () => {
     this.setState({
       currentPage: "Categories/AppDev/WorkoutTracker"
+    });
+  }
+  handleDBWorkoutTrackerClick = () => {
+    this.setState({
+      currentPage: "Categories/DBMS/WorkoutTracker"
+    });
+  }
+  handlePPWorkoutTrackerClick = () => {
+    this.setState({
+      currentPage: "Categories/PersonalProjects/WorkoutTracker"
+    });
+  }
+
+  handleAppDevComS309Click = () => {
+    this.setState({
+      currentPage: "Categories/AppDev/ComS309"
+    });
+  }
+  handleJavaComS309Click = () => {
+    this.setState({
+      currentPage: "Categories/Java/ComS309"
+    });
+  }
+  handleJuniorComS309Click = () => {
+    this.setState({
+      currentPage: "Years/Junior/ComS309"
+    });
+  }
+
+  handleAppDevReactPortfolioClick = () => {
+    this.setState({
+      currentPage: "Categories/AppDev/ReactPortfolio"
+    });
+  }
+  handlePPReactPortfolio = () => {
+    this.setState({
+      currentPage: "Categories/PersonalProjects/ReactPortfolio"
+    });
+  }
+
+  handleAppDevComS363Click = () => {
+    this.setState({
+      currentPage: "Categories/AppDev/ComS363"
+    });
+  }
+  handleDBMSComS363Click = () => {
+    this.setState({
+      currentPage: "Categories/DBMS/ComS363"
+    });
+  }
+  handleSeniorComS363Click = () => {
+    this.setState({
+      currentPage: "Years/Senior/ComS363"
+    });
+  }
+
+  handleAppDevWorkoutAppClick = () => {
+    this.setState({
+      currentPage: "Categories/AppDev/WorkoutApp"
+    });
+  }
+  handlePPWorkoutAppClick = () => {
+    this.setState({
+      currentPage: "Categories/PersonalProjects/WorkoutApp"
     });
   }
 
@@ -59,6 +131,48 @@ export default class HomePage extends React.Component {
     }
     else if (this.state.currentPage === "Categories/AppDev/WorkoutTracker") {
       page = <WorkoutTracker/>
+    }
+    else if (this.state.currentPage === "Categories/PersonalProjects/LiftFlow") {
+      page = <LiftFlow/>
+    }
+    else if (this.state.currentPage === "Categories/DBMS/LiftFlow") {
+      page = <LiftFlow/>
+    }
+    else if (this.state.currentPage === "Categories/DBMS/WorkoutTracker") {
+      page = <WorkoutTracker/>
+    }
+    else if (this.state.currentPage === "Categories/PersonalProjects/WorkoutTracker") {
+      page = <WorkoutTracker/>
+    }
+    else if (this.state.currentPage === "Categories/AppDev/ComS309") {
+      page = <ComS309/>
+    }
+    else if (this.state.currentPage === "Categories/Java/ComS309") {
+      page = <ComS309/>
+    }
+    else if (this.state.currentPage === "Years/Junior/ComS309") {
+      page = <ComS309/>
+    }
+    else if (this.state.currentPage === "Categories/AppDev/ReactPortfolio") {
+      page = <ReactPortfolio/>
+    }
+    else if (this.state.currentPage === "Categories/PersonalProjects/ReactPortfolio") {
+      page = <ReactPortfolio/>
+    }
+    else if (this.state.currentPage === "Categories/AppDev/ComS363") {
+      page = <ComS363/>
+    }
+    else if (this.state.currentPage === "Categories/DBMS/ComS363") {
+      page = <ComS363/>
+    }
+    else if (this.state.currentPage === "Years/Senior/ComS363") {
+      page = <ComS363/>
+    }
+    else if (this.state.currentPage === "Categories/AppDev/WorkoutApp") {
+      page = <WorkoutApp/>
+    }
+    else if (this.state.currentPage === "Categories/PersonalProjects/WorkoutApp") {
+      page = <WorkoutApp/>
     }
     else {
       page = <div>another page</div>
@@ -104,12 +218,12 @@ export default class HomePage extends React.Component {
 
             <SubMenu key="categories" icon={<MenuOutlined />} title="Categories" onClick={this.handleCategoriesClick}>
               <SubMenu key="appDev" title="App Development">
-                <Menu.Item key="2" onClick={this.handleLiftFlowClick} icon={<StarOutlined/>}>Fully Developed iOS App - Lift Flow</Menu.Item>
-                <Menu.Item key="6">React.JS - This Portfolio</Menu.Item>
-                <Menu.Item key="3"onClick={this.handleAppDevWorkoutTrackerClick} icon={<StarOutlined/>}>Mobile App to Web API - Workout Tracker</Menu.Item>
-                <Menu.Item key="4">Android Development Project - Com S 309</Menu.Item>
-                <Menu.Item key="5">Database Management Systems - Com S 363</Menu.Item>
-                <Menu.Item key="7">iOS Development - Workout App</Menu.Item>
+                <Menu.Item key="2" onClick={this.handleAppDevLiftFlowClick} icon={<StarOutlined/>}>Fully Developed iOS App - Lift Flow</Menu.Item>
+                <Menu.Item key="6" onClick={this.handleAppDevReactPortfolioClick} icon={<StarOutlined/>}>React.JS - This Portfolio</Menu.Item>
+                <Menu.Item key="3" onClick={this.handleAppDevWorkoutTrackerClick} icon={<StarOutlined/>}>Mobile App to Web API - Workout Tracker</Menu.Item>
+                <Menu.Item key="4" onClick={this.handleAppDevComS309Click}>Android Development Project - Com S 309</Menu.Item>
+                <Menu.Item key="5" onClick={this.handleAppDevComS363Click}>Database Management Systems - Com S 363</Menu.Item>
+                <Menu.Item key="7" onClick={this.handleAppDevWorkoutAppClick} icon={<StarOutlined/>}>iOS Development - Workout App</Menu.Item>
                 <Menu.Item key="8">Google Cloud Services - First Portfolio</Menu.Item>
               </SubMenu>
               <SubMenu key="java" title="Java">
@@ -117,7 +231,7 @@ export default class HomePage extends React.Component {
                 <Menu.Item key="10">Object-Oriented Programming - Com S 227</Menu.Item>
                 <Menu.Item key="11">Intro to Data Structures - Com S 228</Menu.Item>
                 <Menu.Item key="12">Final Project - Java GUI - CPRE 288</Menu.Item>
-                <Menu.Item key="13">Android Development Project</Menu.Item>
+                <Menu.Item key="13" onClick={this.handleJavaComS309Click}>Android Development Project - Com S 309</Menu.Item>
                 <Menu.Item key="14">Theoretical Foundations of Computer Eng.</Menu.Item>
               </SubMenu>
               <SubMenu key="python" title="Python">
@@ -126,17 +240,17 @@ export default class HomePage extends React.Component {
                 <Menu.Item key="17">Senior Project - Microbiology Data Entry App</Menu.Item>
               </SubMenu>
               <SubMenu key="dbm" title="Database Management">
-                <Menu.Item key="18">Fully Developed iOS App - Lift Flow</Menu.Item>
-                <Menu.Item key="19">Database Management Systems - Com S 363</Menu.Item>
-                <Menu.Item key="20">Mobile App to Web API - Workout Tracker</Menu.Item>
+                <Menu.Item key="18" onClick={this.handleDBLiftFlowClick} icon={<StarOutlined/>}>Fully Developed iOS App - Lift Flow</Menu.Item>
+                <Menu.Item key="19" onClick={this.handleDBMSComS363Click}>Database Management Systems - Com S 363</Menu.Item>
+                <Menu.Item key="20" onClick={this.handleDBWorkoutTrackerClick} icon={<StarOutlined/>}>Mobile App to Web API - Workout Tracker</Menu.Item>
               </SubMenu>
               <SubMenu key="personalProjects" title="Personal Projects" icon={<StarOutlined/>}>
-                <Menu.Item key="21">Lift Flow - Fully Developed iOS App</Menu.Item>
-                <Menu.Item key="22">React.JS - This Portfolio</Menu.Item>
-                <Menu.Item key="23">Mobile App to Web API - Workout Tracker</Menu.Item>
+                <Menu.Item key="21" onClick={this.handlePPLiftFlowClick}>Lift Flow - Fully Developed iOS App</Menu.Item>
+                <Menu.Item key="22" onClick={this.handlePPReactPortfolio}>React.JS - This Portfolio</Menu.Item>
+                <Menu.Item key="23" onClick={this.handlePPWorkoutTrackerClick}>Mobile App to Web API - Workout Tracker</Menu.Item>
                 <Menu.Item key="24">Amazon Web Services - Web API</Menu.Item>
                 <Menu.Item key="25">Google Cloud Services - First Portfolio</Menu.Item>
-                <Menu.Item key="26">iOS Development - Workout App</Menu.Item>
+                <Menu.Item key="26" onClick={this.handlePPWorkoutAppClick}>iOS Development - Workout App</Menu.Item>
                 <Menu.Item key="27">Python - Alien Invasion Game</Menu.Item>
               </SubMenu>
               <SubMenu key="lowLevel" title="Low Level (C, Assembly, VHDL)">
@@ -160,13 +274,13 @@ export default class HomePage extends React.Component {
                 <Menu.Item key="38">Embedded Systems - CPRE 288</Menu.Item>
               </SubMenu>
               <SubMenu key="junior" title="Junior">
-                <Menu.Item key="39">Android Development Project - Com S 309</Menu.Item>
+                <Menu.Item key="39" onClick={this.handleJuniorComS309Click}>Android Development Project - Com S 309</Menu.Item>
                 <Menu.Item key="40">Algorithm Analysis - Com S 311</Menu.Item>
                 <Menu.Item key="41">Computer Architecture - CPRE 381</Menu.Item>
                 <Menu.Item key="42">Theoretical Foundations of Computer Eng.</Menu.Item>
               </SubMenu>
               <SubMenu key="senior" title="Senior">
-                <Menu.Item key="43">Database Management Systems - Com S 363</Menu.Item>
+                <Menu.Item key="43" onClick={this.handleSeniorComS363Click}>Database Management Systems - Com S 363</Menu.Item>
                 <Menu.Item key="44">Senior Project - Microbiology Data Entry App</Menu.Item>
               </SubMenu>
             </SubMenu>
@@ -191,7 +305,105 @@ export default class HomePage extends React.Component {
                 <Breadcrumb.Item>Mobile App to Web API - Workout Tracker</Breadcrumb.Item>
               </Breadcrumb>
             }
-            
+            {this.state.currentPage === "Categories/PersonalProjects/LiftFlow" &&
+              <Breadcrumb style={{margin: '16px 0'}}>
+                <Breadcrumb.Item>Categories</Breadcrumb.Item>
+                <Breadcrumb.Item>Personal Projects</Breadcrumb.Item>
+                <Breadcrumb.Item>Lift Flow - Fully Developed iOS App</Breadcrumb.Item>
+              </Breadcrumb>
+            }
+            {this.state.currentPage === "Categories/DBMS/LiftFlow" &&
+              <Breadcrumb style={{margin: '16px 0'}}>
+                <Breadcrumb.Item>Categories</Breadcrumb.Item>
+                <Breadcrumb.Item>Database Management</Breadcrumb.Item>
+                <Breadcrumb.Item>Lift Flow - Fully Developed iOS App</Breadcrumb.Item>
+              </Breadcrumb>
+            }
+            {this.state.currentPage === "Categories/DBMS/WorkoutTracker" &&
+              <Breadcrumb style={{margin: '16px 0'}}>
+                <Breadcrumb.Item>Categories</Breadcrumb.Item>
+                <Breadcrumb.Item>Database Management</Breadcrumb.Item>
+                <Breadcrumb.Item>Mobile App to Web API - Workout Tracker</Breadcrumb.Item>
+              </Breadcrumb>
+            }
+            {this.state.currentPage === "Categories/PersonalProjects/WorkoutTracker" &&
+              <Breadcrumb style={{margin: '16px 0'}}>
+                <Breadcrumb.Item>Categories</Breadcrumb.Item>
+                <Breadcrumb.Item>Personal Projects</Breadcrumb.Item>
+                <Breadcrumb.Item>Mobile App to Web API - Workout Tracker</Breadcrumb.Item>
+              </Breadcrumb>
+            }
+            {this.state.currentPage === "Categories/AppDev/ComS309" &&
+              <Breadcrumb style={{margin: '16px 0'}}>
+                <Breadcrumb.Item>Categories</Breadcrumb.Item>
+                <Breadcrumb.Item>App Development</Breadcrumb.Item>
+                <Breadcrumb.Item>Android Development Project - Com S 309</Breadcrumb.Item>
+              </Breadcrumb>
+            }
+            {this.state.currentPage === "Categories/Java/ComS309" &&
+              <Breadcrumb style={{margin: '16px 0'}}>
+                <Breadcrumb.Item>Categories</Breadcrumb.Item>
+                <Breadcrumb.Item>Java</Breadcrumb.Item>
+                <Breadcrumb.Item>Android Development Project - Com S 309</Breadcrumb.Item>
+              </Breadcrumb>
+            }
+            {this.state.currentPage === "Years/Junior/ComS309" &&
+              <Breadcrumb style={{margin: '16px 0'}}>
+                <Breadcrumb.Item>Years</Breadcrumb.Item>
+                <Breadcrumb.Item>Junior</Breadcrumb.Item>
+                <Breadcrumb.Item>Android Development Project - Com S 309</Breadcrumb.Item>
+              </Breadcrumb>
+            }
+            {this.state.currentPage === "Categories/AppDev/ReactPortfolio" &&
+              <Breadcrumb style={{margin: '16px 0'}}>
+                <Breadcrumb.Item>Categories</Breadcrumb.Item>
+                <Breadcrumb.Item>App Development</Breadcrumb.Item>
+                <Breadcrumb.Item>React.JS - This Portfolio</Breadcrumb.Item>
+              </Breadcrumb>
+            }
+            {this.state.currentPage === "Categories/PersonalProjects/ReactPortfolio" &&
+              <Breadcrumb style={{margin: '16px 0'}}>
+                <Breadcrumb.Item>Categories</Breadcrumb.Item>
+                <Breadcrumb.Item>Personal Projects</Breadcrumb.Item>
+                <Breadcrumb.Item>React.JS - This Portfolio</Breadcrumb.Item>
+              </Breadcrumb>
+            }
+            {this.state.currentPage === "Categories/AppDev/ComS363" &&
+              <Breadcrumb style={{margin: '16px 0'}}>
+                <Breadcrumb.Item>Categories</Breadcrumb.Item>
+                <Breadcrumb.Item>App Development</Breadcrumb.Item>
+                <Breadcrumb.Item>Database Management Systems - Computer Science 363</Breadcrumb.Item>
+              </Breadcrumb>
+            }
+            {this.state.currentPage === "Categories/DBMS/ComS363" &&
+              <Breadcrumb style={{margin: '16px 0'}}>
+                <Breadcrumb.Item>Categories</Breadcrumb.Item>
+                <Breadcrumb.Item>Database Management</Breadcrumb.Item>
+                <Breadcrumb.Item>Database Management Systems - Computer Science 363</Breadcrumb.Item>
+              </Breadcrumb>
+            }
+            {this.state.currentPage === "Years/Senior/ComS363" &&
+              <Breadcrumb style={{margin: '16px 0'}}>
+                <Breadcrumb.Item>Years</Breadcrumb.Item>
+                <Breadcrumb.Item>Senior</Breadcrumb.Item>
+                <Breadcrumb.Item>Database Management Systems - Computer Science 363</Breadcrumb.Item>
+              </Breadcrumb>
+            }
+            {this.state.currentPage === "Categories/AppDev/WorkoutApp" &&
+              <Breadcrumb style={{margin: '16px 0'}}>
+                <Breadcrumb.Item>Categories</Breadcrumb.Item>
+                <Breadcrumb.Item>App Development</Breadcrumb.Item>
+                <Breadcrumb.Item>iOS Development - Workout App</Breadcrumb.Item>
+              </Breadcrumb>
+            }
+            {this.state.currentPage === "Categories/PersonalProjects/WorkoutApp" &&
+              <Breadcrumb style={{margin: '16px 0'}}>
+                <Breadcrumb.Item>Categories</Breadcrumb.Item>
+                <Breadcrumb.Item>Personal Projects</Breadcrumb.Item>
+                <Breadcrumb.Item>iOS Development - Workout App</Breadcrumb.Item>
+              </Breadcrumb>
+            }
+
             <div className="site-layout-background" style={{ padding: 24, minHeight: 360 }}>
               {page}
             </div>
