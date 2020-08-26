@@ -7,6 +7,7 @@ import {
   UserOutlined,
   StarOutlined,
 } from '@ant-design/icons';
+import { Redirect } from 'react-router-dom';
 import About from '../About/About.js';
 import LiftFlow from '../LiftFlow/LiftFlow.js';
 import WorkoutTracker from '../WorkoutTracker/WorkoutTracker.js';
@@ -14,6 +15,7 @@ import ComS309 from '../ComS309/ComS309.js';
 import ReactPortfolio from '../ReactPortfolio/ReactPortfolio.js';
 import ComS363 from '../ComS363/ComS363.js';
 import WorkoutApp from '../WorkoutApp/WorkoutApp.js';
+import FirstPortfolio from '../FirstPortfolio/FirstPortfolio.js';
 
 const { Header, Content, Sider } = Layout;
 const { SubMenu } = Menu;
@@ -120,6 +122,23 @@ export default class HomePage extends React.Component {
     });
   }
 
+  handleAppDevFirstPortfolioClick = () => {
+    this.setState({
+      currentPage: "Categories/AppDev/FirstPortfolio"
+    });
+  }
+  handlePPFirstPortfolioClick = () => {
+    this.setState({
+      currentPage: "Categories/PersonalProjects/FirstPortfolio"
+    });
+  }
+
+  handleComS227Click = () => {
+    this.setState({
+      currentPage: "Years/Freshman/ComS227"
+    });
+  }
+
   render() {
     let page;
     let width;
@@ -174,6 +193,15 @@ export default class HomePage extends React.Component {
     else if (this.state.currentPage === "Categories/PersonalProjects/WorkoutApp") {
       page = <WorkoutApp/>
     }
+    else if (this.state.currentPage === "Categories/AppDev/FirstPortfolio") {
+      page = <FirstPortfolio/>
+    }
+    else if (this.state.currentPage === "Categories/PersonalProjects/FirstPortfolio") {
+      page = <FirstPortfolio/>
+    }
+    else if (this.state.currentPage === "Years/Freshman/ComS227") {
+      return <Redirect to={"/ComS227"}/>
+    }
     else {
       page = <div>another page</div>
     }
@@ -224,7 +252,7 @@ export default class HomePage extends React.Component {
                 <Menu.Item key="4" onClick={this.handleAppDevComS309Click}>Android Development Project - Com S 309</Menu.Item>
                 <Menu.Item key="5" onClick={this.handleAppDevComS363Click}>Database Management Systems - Com S 363</Menu.Item>
                 <Menu.Item key="7" onClick={this.handleAppDevWorkoutAppClick} icon={<StarOutlined/>}>iOS Development - Workout App</Menu.Item>
-                <Menu.Item key="8">Google Cloud Services - First Portfolio</Menu.Item>
+                <Menu.Item key="8" onClick={this.handleAppDevFirstPortfolioClick} icon={<StarOutlined/>}>First Portfolio - Google Cloud Services</Menu.Item>
               </SubMenu>
               <SubMenu key="java" title="Java">
                 <Menu.Item key="9">Intro to Computer Eng. and Problem Solving II</Menu.Item>
@@ -249,7 +277,7 @@ export default class HomePage extends React.Component {
                 <Menu.Item key="22" onClick={this.handlePPReactPortfolio}>React.JS - This Portfolio</Menu.Item>
                 <Menu.Item key="23" onClick={this.handlePPWorkoutTrackerClick}>Mobile App to Web API - Workout Tracker</Menu.Item>
                 <Menu.Item key="24">Amazon Web Services - Web API</Menu.Item>
-                <Menu.Item key="25">Google Cloud Services - First Portfolio</Menu.Item>
+                <Menu.Item key="25" onClick={this.handlePPFirstPortfolioClick}>First Portfolio - Google Cloud Services</Menu.Item>
                 <Menu.Item key="26" onClick={this.handlePPWorkoutAppClick}>iOS Development - Workout App</Menu.Item>
                 <Menu.Item key="27">Python - Alien Invasion Game</Menu.Item>
               </SubMenu>
@@ -263,7 +291,7 @@ export default class HomePage extends React.Component {
 
             <SubMenu key="years" icon={<MenuOutlined />} title="Years">
               <SubMenu key="freshman" title="Freshman">
-                <Menu.Item key="32">Object-Oriented Programming - Com S 227</Menu.Item>
+                <Menu.Item key="32" onClick={this.handleComS227Click}>Object-Oriented Programming - Com S 227</Menu.Item>
                 <Menu.Item key="33">Intro to Computer Eng. and Problem Solving II</Menu.Item>
                 <Menu.Item key="34">Intro to Computer Eng. and Problem Solving - CPRE 185</Menu.Item>
               </SubMenu>
@@ -401,6 +429,20 @@ export default class HomePage extends React.Component {
                 <Breadcrumb.Item>Categories</Breadcrumb.Item>
                 <Breadcrumb.Item>Personal Projects</Breadcrumb.Item>
                 <Breadcrumb.Item>iOS Development - Workout App</Breadcrumb.Item>
+              </Breadcrumb>
+            }
+            {this.state.currentPage === "Categories/AppDev/FirstPortfolio" &&
+              <Breadcrumb style={{margin: '16px 0'}}>
+                <Breadcrumb.Item>Categories</Breadcrumb.Item>
+                <Breadcrumb.Item>App Development</Breadcrumb.Item>
+                <Breadcrumb.Item>First Portfolio - Google Cloud Services</Breadcrumb.Item>
+              </Breadcrumb>
+            }
+            {this.state.currentPage === "Categories/PersonalProjects/FirstPortfolio" &&
+              <Breadcrumb style={{margin: '16px 0'}}>
+                <Breadcrumb.Item>Categories</Breadcrumb.Item>
+                <Breadcrumb.Item>Personal Projects</Breadcrumb.Item>
+                <Breadcrumb.Item>First Portfolio - Google Cloud Services</Breadcrumb.Item>
               </Breadcrumb>
             }
 
