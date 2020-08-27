@@ -1,7 +1,12 @@
 import React from 'react';
-import HomePage from './Components/HomePage/HomePage.js';
-import ComS227 from './ClassComponents/ComS227/ComS227.js'
 import {Switch, Route, BrowserRouter} from 'react-router-dom';
+import HomePage from './Components/HomePage/HomePage.js';
+import ComS227 from './ClassComponents/ComS227/ComS227.js';
+import CPRE185 from './ClassComponents/CPRE185/CPRE185.js';
+import ComS228 from './ClassComponents/ComS228/ComS228.js';
+import CPRE288 from './ClassComponents/CPRE288/CPRE288.js';
+import ComS311 from './ClassComponents/ComS311/ComS311.js';
+import CPRE381 from './ClassComponents/CPRE381/CPRE381.js';
 
 export default class App extends React.Component {
 
@@ -15,6 +20,26 @@ export default class App extends React.Component {
 
           <Route path="/ComS227">
             <ComS227/>
+          </Route>
+
+          <Route path="/CPRE185">
+            <CPRE185/>
+          </Route>
+
+          <Route path="/ComS228">
+            <ComS228/>
+          </Route>
+
+          <Route path="/CPRE288">
+            <CPRE288/>
+          </Route>
+
+          <Route path="/ComS311">
+            <ComS311/>
+          </Route>
+
+          <Route path="/CPRE381">
+            <CPRE381/>
           </Route>
         </Switch>
       </BrowserRouter>

@@ -139,6 +139,36 @@ export default class HomePage extends React.Component {
     });
   }
 
+  handleCPRE185Click = () => {
+    this.setState({
+      currentPage: "Years/Freshman/CPRE185"
+    });
+  }
+
+  handleComS228Click = () => {
+    this.setState({
+      currentPage: "Years/Sophomore/ComS228"
+    });
+  }
+
+  handleCPRE288Click = () => {
+    this.setState({
+      currentPage: "Years/Sophomore/CPRE288"
+    });
+  }
+
+  handleComS311Click = () => {
+    this.setState({
+      currentPage: "Years/Junior/ComS311"
+    });
+  }
+
+  handleCPRE381Click = () => {
+    this.setState({
+      currentPage: "Years/Junior/CPRE381"
+    });
+  }
+
   render() {
     let page;
     let width;
@@ -201,6 +231,21 @@ export default class HomePage extends React.Component {
     }
     else if (this.state.currentPage === "Years/Freshman/ComS227") {
       return <Redirect to={"/ComS227"}/>
+    }
+    else if (this.state.currentPage === "Years/Freshman/CPRE185") {
+      return <Redirect to={"/CPRE185"}/>
+    }
+    else if (this.state.currentPage === "Years/Sophomore/ComS228") {
+      return <Redirect to={"/ComS228"}/>
+    }
+    else if (this.state.currentPage === "Years/Sophomore/CPRE288") {
+      return <Redirect to={"/CPRE288"}/>
+    }
+    else if (this.state.currentPage === "Years/Junior/ComS311") {
+      return <Redirect to={"/ComS311"}/>
+    }
+    else if (this.state.currentPage === "Years/Junior/CPRE381") {
+      return <Redirect to={"/CPRE381"}/>
     }
     else {
       page = <div>another page</div>
@@ -293,18 +338,18 @@ export default class HomePage extends React.Component {
               <SubMenu key="freshman" title="Freshman">
                 <Menu.Item key="32" onClick={this.handleComS227Click}>Object-Oriented Programming - Com S 227</Menu.Item>
                 <Menu.Item key="33">Intro to Computer Eng. and Problem Solving II</Menu.Item>
-                <Menu.Item key="34">Intro to Computer Eng. and Problem Solving - CPRE 185</Menu.Item>
+                <Menu.Item key="34" onClick={this.handleCPRE185Click}>Intro to Computer Eng. and Problem Solving - CPRE 185</Menu.Item>
               </SubMenu>
               <SubMenu key="sophomore" title="Sophomore">
-                <Menu.Item key="35">Intro to Data Structures - Com S 228</Menu.Item>
+                <Menu.Item key="35" onClick={this.handleComS228Click}>Intro to Data Structures - Com S 228</Menu.Item>
                 <Menu.Item key="36">Construction of User Interfaces - Com S 319</Menu.Item>
                 <Menu.Item key="37">Digital Logic - CPRE 281</Menu.Item>
-                <Menu.Item key="38">Embedded Systems - CPRE 288</Menu.Item>
+                <Menu.Item key="38" onClick={this.handleCPRE288Click}>Embedded Systems - CPRE 288</Menu.Item>
               </SubMenu>
               <SubMenu key="junior" title="Junior">
                 <Menu.Item key="39" onClick={this.handleJuniorComS309Click}>Android Development Project - Com S 309</Menu.Item>
-                <Menu.Item key="40">Algorithm Analysis - Com S 311</Menu.Item>
-                <Menu.Item key="41">Computer Architecture - CPRE 381</Menu.Item>
+                <Menu.Item key="40" onClick={this.handleComS311Click}>Algorithm Analysis - Com S 311</Menu.Item>
+                <Menu.Item key="41" onClick={this.handleCPRE381Click}>Computer Architecture - CPRE 381</Menu.Item>
                 <Menu.Item key="42">Theoretical Foundations of Computer Eng.</Menu.Item>
               </SubMenu>
               <SubMenu key="senior" title="Senior">
