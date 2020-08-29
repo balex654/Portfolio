@@ -60,6 +60,9 @@ export default class ComS228 extends React.Component {
     render() {
         let page;
         let width;
+        let pathItem1 = "default";
+        let pathItem2 = "default";
+
         if (this.state.currentPage === "Home") {
             return <Redirect to={"/Home"}/>
         }
@@ -77,6 +80,15 @@ export default class ComS228 extends React.Component {
         }
         else if (this.state.currentPage === "Project5") {
             page = <Project5/>
+        }
+
+        if (this.props.location.state.path === "Categories/Java") {
+            pathItem1 = "Categories"
+            pathItem2 = "Java"
+        }
+        else if (this.props.location.state.path === "Years/Sophomore") {
+            pathItem1 = "Years"
+            pathItem2 = "Sophomore"
         }
 
         if (this.state.collapsed === true) {
@@ -139,40 +151,40 @@ export default class ComS228 extends React.Component {
 
                         {this.state.currentPage === "Project1" && 
                             <Breadcrumb style={{ margin: '16px 0' }}>
-                                <Breadcrumb.Item>Years</Breadcrumb.Item>
-                                <Breadcrumb.Item>Sophomore</Breadcrumb.Item>
+                                <Breadcrumb.Item>{pathItem1}</Breadcrumb.Item>
+                                <Breadcrumb.Item>{pathItem2}</Breadcrumb.Item>
                                 <Breadcrumb.Item>Intro to Data Structures - Com S 228</Breadcrumb.Item>
                                 <Breadcrumb.Item>DNA Example of Polymorphism - Project 1</Breadcrumb.Item>
                             </Breadcrumb>
                         }
                         {this.state.currentPage === "Project2" && 
                             <Breadcrumb style={{ margin: '16px 0' }}>
-                                <Breadcrumb.Item>Years</Breadcrumb.Item>
-                                <Breadcrumb.Item>Sophomore</Breadcrumb.Item>
+                                <Breadcrumb.Item>{pathItem1}</Breadcrumb.Item>
+                                <Breadcrumb.Item>{pathItem2}</Breadcrumb.Item>
                                 <Breadcrumb.Item>Intro to Data Structures - Com S 228</Breadcrumb.Item>
                                 <Breadcrumb.Item>Sorting Algorithm Implementations - Project 2</Breadcrumb.Item>
                             </Breadcrumb>
                         }
                         {this.state.currentPage === "Project3" && 
                             <Breadcrumb style={{ margin: '16px 0' }}>
-                                <Breadcrumb.Item>Years</Breadcrumb.Item>
-                                <Breadcrumb.Item>Sophomore</Breadcrumb.Item>
+                                <Breadcrumb.Item>{pathItem1}</Breadcrumb.Item>
+                                <Breadcrumb.Item>{pathItem2}</Breadcrumb.Item>
                                 <Breadcrumb.Item>Intro to Data Structures - Com S 228</Breadcrumb.Item>
                                 <Breadcrumb.Item>Created Adaptive List Object - Project 3</Breadcrumb.Item>
                             </Breadcrumb>
                         }
                         {this.state.currentPage === "Project4" && 
                             <Breadcrumb style={{ margin: '16px 0' }}>
-                                <Breadcrumb.Item>Years</Breadcrumb.Item>
-                                <Breadcrumb.Item>Sophomore</Breadcrumb.Item>
+                                <Breadcrumb.Item>{pathItem1}</Breadcrumb.Item>
+                                <Breadcrumb.Item>{pathItem2}</Breadcrumb.Item>
                                 <Breadcrumb.Item>Intro to Data Structures - Com S 228</Breadcrumb.Item>
                                 <Breadcrumb.Item>Tree Data Structure - Project 4</Breadcrumb.Item>
                             </Breadcrumb>
                         }
                         {this.state.currentPage === "Project5" && 
                             <Breadcrumb style={{ margin: '16px 0' }}>
-                                <Breadcrumb.Item>Years</Breadcrumb.Item>
-                                <Breadcrumb.Item>Sophomore</Breadcrumb.Item>
+                                <Breadcrumb.Item>{pathItem1}</Breadcrumb.Item>
+                                <Breadcrumb.Item>{pathItem2}</Breadcrumb.Item>
                                 <Breadcrumb.Item>Intro to Data Structures - Com S 228</Breadcrumb.Item>
                                 <Breadcrumb.Item>Depth First Search Implementation - Project 5</Breadcrumb.Item>
                             </Breadcrumb>

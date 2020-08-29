@@ -1,15 +1,17 @@
 import React from 'react';
-import { Layout, Menu } from 'antd';
+import { Layout, Menu, Breadcrumb } from 'antd';
 import { MenuOutlined, HomeOutlined } from '@ant-design/icons';
 import '../../Components/HomePage/HomePage.css';
 import { Redirect } from 'react-router-dom';
+import ProjectA from './ProjectA/ProjectA.js';
+import ProjectB from './ProjectB/ProjectB.js';
 
 const { Header, Content, Sider } = Layout;
 
 export default class CPRE381 extends React.Component {
     state = {
         collapsed: false,
-        currentPage: "A1"
+        currentPage: "ProjectA"
     }
 
     onCollapse = collapsed => {
@@ -22,11 +24,29 @@ export default class CPRE381 extends React.Component {
         });
     }
 
+    handleProjectAClick = () => {
+        this.setState({
+            currentPage: "ProjectA"
+        });
+    }
+
+    handleProjectBClick = () => {
+        this.setState({
+            currentPage: "ProjectB"
+        });
+    }
+
     render() {
         let page;
         let width;
         if (this.state.currentPage === "Home") {
             return <Redirect to={"/Home"}/>
+        }
+        else if (this.state.currentPage === "ProjectA") {
+            page = <ProjectA/>
+        }
+        else if (this.state.currentPage === "ProjectB") {
+            page = <ProjectB/>
         }
 
         if (this.state.collapsed === true) {
@@ -65,10 +85,10 @@ export default class CPRE381 extends React.Component {
                             Home
                         </Menu.Item>
                         <Menu.Divider/>
-                        <Menu.Item key="1" icon={<MenuOutlined/>}>
+                        <Menu.Item key="1" icon={<MenuOutlined/>} onClick={this.handleProjectAClick}>
                             Single-Cycle MIPS Processor - Project A
                         </Menu.Item>
-                        <Menu.Item key="2" icon={<MenuOutlined/>}>
+                        <Menu.Item key="2" icon={<MenuOutlined/>} onClick={this.handleProjectBClick}>
                             32-bit MIPS Pipline Processor - Project B
                         </Menu.Item>
                     </Menu>
@@ -77,6 +97,24 @@ export default class CPRE381 extends React.Component {
                 <Layout className="site-layout" style={{marginLeft:width}}>
                     <Header className="site-layout-background" style={{ padding: 0 }}/>
                     <Content style={{ margin: '0 16px' }}>
+
+                        {this.state.currentPage === "ProjectA" && 
+                            <Breadcrumb style={{ margin: '16px 0' }}>
+                                <Breadcrumb.Item>Years</Breadcrumb.Item>
+                                <Breadcrumb.Item>Junior</Breadcrumb.Item>
+                                <Breadcrumb.Item>Computer Architecture - CPRE 381</Breadcrumb.Item>
+                                <Breadcrumb.Item>Single-Cycle MIPS Processor - Project A</Breadcrumb.Item>
+                            </Breadcrumb>
+                        }
+                        {this.state.currentPage === "ProjectB" && 
+                            <Breadcrumb style={{ margin: '16px 0' }}>
+                                <Breadcrumb.Item>Years</Breadcrumb.Item>
+                                <Breadcrumb.Item>Junior</Breadcrumb.Item>
+                                <Breadcrumb.Item>Computer Architecture - CPRE 381</Breadcrumb.Item>
+                                <Breadcrumb.Item>32-bit MIPS Pipline Processor - Project B</Breadcrumb.Item>
+                            </Breadcrumb>
+                        }
+
                         <div className="site-layout-background" style={{ padding: 24, minHeight: 360 }}>
                             {page}
                         </div>

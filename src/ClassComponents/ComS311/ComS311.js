@@ -1,15 +1,17 @@
 import React from 'react';
-import { Layout, Menu } from 'antd';
+import { Layout, Menu, Breadcrumb } from 'antd';
 import { MenuOutlined, HomeOutlined } from '@ant-design/icons';
 import '../../Components/HomePage/HomePage.css';
 import { Redirect } from 'react-router-dom';
+import Project1 from './Project1/Project1.js';
+import Project2 from './Project2/Project2.js';
 
 const { Header, Content, Sider } = Layout;
 
 export default class ComS311 extends React.Component {
     state = {
         collapsed: false,
-        currentPage: "A1"
+        currentPage: "Project1"
     }
 
     onCollapse = collapsed => {
@@ -22,11 +24,41 @@ export default class ComS311 extends React.Component {
         });
     }
 
+    handleProject1Click = () => {
+        this.setState({
+            currentPage: "Project1"
+        });
+    }
+
+    handleProject2Click = () => {
+        this.setState({
+            currentPage: "Project2"
+        });
+    }
+
     render() {
         let page;
         let width;
+        let pathItem1 = "default";
+        let pathItem2 = "default";
+
         if (this.state.currentPage === "Home") {
             return <Redirect to={"/Home"}/>
+        }
+        else if (this.state.currentPage === "Project1") {
+            page = <Project1/>
+        }
+        else if (this.state.currentPage === "Project2") {
+            page = <Project2/>
+        }
+
+        if (this.props.location.state.path === "Categories/Python") {
+            pathItem1 = "Categories"
+            pathItem2 = "Python"
+        }
+        else if (this.props.location.state.path === "Years/Junior") {
+            pathItem1 = "Years"
+            pathItem2 = "Junior"
         }
 
         if (this.state.collapsed === true) {
@@ -65,10 +97,10 @@ export default class ComS311 extends React.Component {
                             Home
                         </Menu.Item>
                         <Menu.Divider/>
-                        <Menu.Item key="1" icon={<MenuOutlined/>}>
+                        <Menu.Item key="1" icon={<MenuOutlined/>} onClick={this.handleProject1Click}>
                             Graph Traversal Algorithms (Shortest path algorithms) - Project 1
                         </Menu.Item>
-                        <Menu.Item key="2" icon={<MenuOutlined/>}>
+                        <Menu.Item key="2" icon={<MenuOutlined/>} onClick={this.handleProject2Click}>
                             String Matching Algorithms (Word Searching) - Project 2
                         </Menu.Item>
                     </Menu>
@@ -77,6 +109,24 @@ export default class ComS311 extends React.Component {
                 <Layout className="site-layout" style={{marginLeft:width}}>
                     <Header className="site-layout-background" style={{ padding: 0 }}/>
                     <Content style={{ margin: '0 16px' }}>
+                        
+                        {this.state.currentPage === "Project1" && 
+                            <Breadcrumb style={{ margin: '16px 0' }}>
+                                <Breadcrumb.Item>{pathItem1}</Breadcrumb.Item>
+                                <Breadcrumb.Item>{pathItem2}</Breadcrumb.Item>
+                                <Breadcrumb.Item>Algorithm Analysis - Com S 311</Breadcrumb.Item>
+                                <Breadcrumb.Item>Graph Traversal Algorithms (Shortest path algorithms) - Project 1</Breadcrumb.Item>
+                            </Breadcrumb>
+                        }
+                        {this.state.currentPage === "Project2" && 
+                            <Breadcrumb style={{ margin: '16px 0' }}>
+                                <Breadcrumb.Item>{pathItem1}</Breadcrumb.Item>
+                                <Breadcrumb.Item>{pathItem2}</Breadcrumb.Item>
+                                <Breadcrumb.Item>Algorithm Analysis - Com S 311</Breadcrumb.Item>
+                                <Breadcrumb.Item>String Matching Algorithms (Word Searching) - Project 2</Breadcrumb.Item>
+                            </Breadcrumb>
+                        }
+                        
                         <div className="site-layout-background" style={{ padding: 24, minHeight: 360 }}>
                             {page}
                         </div>

@@ -169,6 +169,22 @@ export default class HomePage extends React.Component {
     });
   }
 
+  handleJavaComS227Click = () => {
+    this.setState({
+      currentPage: "Categories/Java/ComS227"
+    });
+  }
+  handleJavaComS228Click = () => {
+    this.setState({
+      currentPage: "Categories/Java/ComS228"
+    });
+  }
+  handlePythonComS311Click = () => {
+    this.setState({
+      currentPage: "Categories/Python/ComS311"
+    });
+  }
+
   render() {
     let page;
     let width;
@@ -230,22 +246,31 @@ export default class HomePage extends React.Component {
       page = <FirstPortfolio/>
     }
     else if (this.state.currentPage === "Years/Freshman/ComS227") {
-      return <Redirect to={"/ComS227"}/>
+      return <Redirect to={{pathname: "/ComS227", state: {path: "Years/Freshman"}}}/>
     }
     else if (this.state.currentPage === "Years/Freshman/CPRE185") {
       return <Redirect to={"/CPRE185"}/>
     }
     else if (this.state.currentPage === "Years/Sophomore/ComS228") {
-      return <Redirect to={"/ComS228"}/>
+      return <Redirect to={{pathname: "/ComS228", state: {path: "Years/Sophomore"}}}/>
     }
     else if (this.state.currentPage === "Years/Sophomore/CPRE288") {
       return <Redirect to={"/CPRE288"}/>
     }
     else if (this.state.currentPage === "Years/Junior/ComS311") {
-      return <Redirect to={"/ComS311"}/>
+      return <Redirect to={{pathname: "/ComS311", state: {path: "Years/Junior"}}}/>
     }
     else if (this.state.currentPage === "Years/Junior/CPRE381") {
       return <Redirect to={"/CPRE381"}/>
+    }
+    else if (this.state.currentPage === "Categories/Java/ComS227") {
+      return <Redirect to={{pathname: "/ComS227", state: {path: "Categories/Java"}}}/>
+    }
+    else if (this.state.currentPage === "Categories/Java/ComS228") {
+      return <Redirect to={{pathname: "/ComS228", state: {path: "Categories/Java"}}}/>
+    }
+    else if (this.state.currentPage === "Categories/Python/ComS311") {
+      return <Redirect to={{pathname: "/ComS311", state: {path: "Categories/Python"}}}/>
     }
     else {
       page = <div>another page</div>
@@ -301,14 +326,14 @@ export default class HomePage extends React.Component {
               </SubMenu>
               <SubMenu key="java" title="Java">
                 <Menu.Item key="9">Intro to Computer Eng. and Problem Solving II</Menu.Item>
-                <Menu.Item key="10">Object-Oriented Programming - Com S 227</Menu.Item>
-                <Menu.Item key="11">Intro to Data Structures - Com S 228</Menu.Item>
+                <Menu.Item key="10" onClick={this.handleJavaComS227Click}>Object-Oriented Programming - Com S 227</Menu.Item>
+                <Menu.Item key="11" onClick={this.handleJavaComS228Click}>Intro to Data Structures - Com S 228</Menu.Item>
                 <Menu.Item key="12">Final Project - Java GUI - CPRE 288</Menu.Item>
                 <Menu.Item key="13" onClick={this.handleJavaComS309Click}>Android Development Project - Com S 309</Menu.Item>
                 <Menu.Item key="14">Theoretical Foundations of Computer Eng.</Menu.Item>
               </SubMenu>
               <SubMenu key="python" title="Python">
-                <Menu.Item key="15">Algorithm Analysis - Com S 311</Menu.Item>
+                <Menu.Item key="15" onClick={this.handlePythonComS311Click}>Algorithm Analysis - Com S 311</Menu.Item>
                 <Menu.Item key="16">Python - Alien Invasion Game</Menu.Item>
                 <Menu.Item key="17">Senior Project - Microbiology Data Entry App</Menu.Item>
               </SubMenu>

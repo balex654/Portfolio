@@ -67,6 +67,9 @@ export default class ComS227 extends React.Component {
     render() {
         let page;
         let width;
+        let pathItem1 = "default";
+        let pathItem2 = "default";
+
         if (this.state.currentPage === "Home") {
             return <Redirect to={"/Home"}/>
         }
@@ -87,6 +90,15 @@ export default class ComS227 extends React.Component {
         }
         else if (this.state.currentPage === "TransClasses") {
             page = <TransClasses/>
+        }
+
+        if (this.props.location.state.path === "Categories/Java") {
+            pathItem1 = "Categories"
+            pathItem2 = "Java"
+        }
+        else if (this.props.location.state.path === "Years/Freshman") {
+            pathItem1 = "Years"
+            pathItem2 = "Freshman"
         }
 
         if (this.state.collapsed === true) {
@@ -152,48 +164,48 @@ export default class ComS227 extends React.Component {
 
                         {this.state.currentPage === "A1" && 
                             <Breadcrumb style={{ margin: '16px 0' }}>
-                                <Breadcrumb.Item>Years</Breadcrumb.Item>
-                                <Breadcrumb.Item>Freshman</Breadcrumb.Item>
+                                <Breadcrumb.Item>{pathItem1}</Breadcrumb.Item>
+                                <Breadcrumb.Item>{pathItem2}</Breadcrumb.Item>
                                 <Breadcrumb.Item>Object-Oriented Programming - Com S 227</Breadcrumb.Item>
                                 <Breadcrumb.Item>Simple Television Class - Assignment 1</Breadcrumb.Item>
                             </Breadcrumb>
                         }
                         {this.state.currentPage === "A2" && 
                             <Breadcrumb style={{ margin: '16px 0' }}>
-                                <Breadcrumb.Item>Years</Breadcrumb.Item>
-                                <Breadcrumb.Item>Freshman</Breadcrumb.Item>
+                                <Breadcrumb.Item>{pathItem1}</Breadcrumb.Item>
+                                <Breadcrumb.Item>{pathItem2}</Breadcrumb.Item>
                                 <Breadcrumb.Item>Object-Oriented Programming - Com S 227</Breadcrumb.Item>
                                 <Breadcrumb.Item>Football Game Class - Assignment 2</Breadcrumb.Item>
                             </Breadcrumb>
                         }
                         {this.state.currentPage === "A3" && 
                             <Breadcrumb style={{ margin: '16px 0' }}>
-                                <Breadcrumb.Item>Years</Breadcrumb.Item>
-                                <Breadcrumb.Item>Freshman</Breadcrumb.Item>
+                                <Breadcrumb.Item>{pathItem1}</Breadcrumb.Item>
+                                <Breadcrumb.Item>{pathItem2}</Breadcrumb.Item>
                                 <Breadcrumb.Item>Object-Oriented Programming - Com S 227</Breadcrumb.Item>
                                 <Breadcrumb.Item>Color Flow Game - Assignment 3</Breadcrumb.Item>
                             </Breadcrumb>
                         }
                         {this.state.currentPage === "A4" && 
                             <Breadcrumb style={{ margin: '16px 0' }}>
-                                <Breadcrumb.Item>Years</Breadcrumb.Item>
-                                <Breadcrumb.Item>Freshman</Breadcrumb.Item>
+                                <Breadcrumb.Item>{pathItem1}</Breadcrumb.Item>
+                                <Breadcrumb.Item>{pathItem2}</Breadcrumb.Item>
                                 <Breadcrumb.Item>Object-Oriented Programming - Com S 227</Breadcrumb.Item>
                                 <Breadcrumb.Item>Snake Game - Assignment 4</Breadcrumb.Item>
                             </Breadcrumb>
                         }
                         {this.state.currentPage === "TallyClass" && 
                             <Breadcrumb style={{ margin: '16px 0' }}>
-                                <Breadcrumb.Item>Years</Breadcrumb.Item>
-                                <Breadcrumb.Item>Freshman</Breadcrumb.Item>
+                                <Breadcrumb.Item>{pathItem1}</Breadcrumb.Item>
+                                <Breadcrumb.Item>{pathItem2}</Breadcrumb.Item>
                                 <Breadcrumb.Item>Object-Oriented Programming - Com S 227</Breadcrumb.Item>
                                 <Breadcrumb.Item>Tally Class - Assignment 1</Breadcrumb.Item>
                             </Breadcrumb>
                         }
                         {this.state.currentPage === "TransClasses" && 
                             <Breadcrumb style={{ margin: '16px 0' }}>
-                                <Breadcrumb.Item>Years</Breadcrumb.Item>
-                                <Breadcrumb.Item>Freshman</Breadcrumb.Item>
+                                <Breadcrumb.Item>{pathItem1}</Breadcrumb.Item>
+                                <Breadcrumb.Item>{pathItem2}</Breadcrumb.Item>
                                 <Breadcrumb.Item>Object-Oriented Programming - Com S 227</Breadcrumb.Item>
                                 <Breadcrumb.Item>Transformation Classes - Assignment 2</Breadcrumb.Item>
                             </Breadcrumb>

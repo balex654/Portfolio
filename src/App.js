@@ -18,25 +18,19 @@ export default class App extends React.Component {
             <HomePage/>
           </Route>
 
-          <Route path="/ComS227">
-            <ComS227/>
-          </Route>
+          <Route path="/ComS227" render={(props) => <ComS227 {...props}/>}/>
 
           <Route path="/CPRE185">
             <CPRE185/>
           </Route>
 
-          <Route path="/ComS228">
-            <ComS228/>
-          </Route>
+          <Route path="/ComS228" render={(props) => <ComS228 {...props}/>}/>
 
           <Route path="/CPRE288">
             <CPRE288/>
           </Route>
 
-          <Route path="/ComS311">
-            <ComS311/>
-          </Route>
+          <Route path="/ComS311" render={(props) => <ComS311 {...props}/>}/>
 
           <Route path="/CPRE381">
             <CPRE381/>
