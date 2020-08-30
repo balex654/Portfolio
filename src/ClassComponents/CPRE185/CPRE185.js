@@ -53,6 +53,9 @@ export default class CPRE185 extends React.Component {
     render() {
         let page;
         let width;
+        let pathItem1 = "default";
+        let pathItem2 = "default";
+
         if (this.state.currentPage === "Home") {
             return <Redirect to={"/Home"}/>
         }
@@ -67,6 +70,15 @@ export default class CPRE185 extends React.Component {
         }
         else if (this.state.currentPage === "Lab9") {
             page = <Lab9/>
+        }
+
+        if (this.props.location.state.path === "Categories/LowLevel") {
+            pathItem1 = "Categories"
+            pathItem2 = "Low Level"
+        }
+        else if (this.props.location.state.path === "Years/Freshman") {
+            pathItem1 = "Years"
+            pathItem2 = "Freshman"
         }
 
         if (this.state.collapsed === true) {
@@ -126,32 +138,32 @@ export default class CPRE185 extends React.Component {
                         
                         {this.state.currentPage === "Lab6" && 
                             <Breadcrumb style={{ margin: '16px 0' }}>
-                                <Breadcrumb.Item>Years</Breadcrumb.Item>
-                                <Breadcrumb.Item>Freshman</Breadcrumb.Item>
+                                <Breadcrumb.Item>{pathItem1}</Breadcrumb.Item>
+                                <Breadcrumb.Item>{pathItem2}</Breadcrumb.Item>
                                 <Breadcrumb.Item>Intro to Computer Eng. and Problem Solving - CPRE 185</Breadcrumb.Item>
                                 <Breadcrumb.Item>Accelerometer Drop Testing - Lab 6</Breadcrumb.Item>
                             </Breadcrumb>
                         }
                         {this.state.currentPage === "Lab7" && 
                             <Breadcrumb style={{ margin: '16px 0' }}>
-                                <Breadcrumb.Item>Years</Breadcrumb.Item>
-                                <Breadcrumb.Item>Freshman</Breadcrumb.Item>
+                                <Breadcrumb.Item>{pathItem1}</Breadcrumb.Item>
+                                <Breadcrumb.Item>{pathItem2}</Breadcrumb.Item>
                                 <Breadcrumb.Item>Intro to Computer Eng. and Problem Solving - CPRE 185</Breadcrumb.Item>
                                 <Breadcrumb.Item>Accelerometer Tilt Visualization - Lab 7</Breadcrumb.Item>
                             </Breadcrumb>
                         }
                         {this.state.currentPage === "Lab8" && 
                             <Breadcrumb style={{ margin: '16px 0' }}>
-                                <Breadcrumb.Item>Years</Breadcrumb.Item>
-                                <Breadcrumb.Item>Freshman</Breadcrumb.Item>
+                                <Breadcrumb.Item>{pathItem1}</Breadcrumb.Item>
+                                <Breadcrumb.Item>{pathItem2}</Breadcrumb.Item>
                                 <Breadcrumb.Item>Intro to Computer Eng. and Problem Solving - CPRE 185</Breadcrumb.Item>
                                 <Breadcrumb.Item>Moving Averages with Accelerometer - Lab 8</Breadcrumb.Item>
                             </Breadcrumb>
                         }
                         {this.state.currentPage === "Lab9" && 
                             <Breadcrumb style={{ margin: '16px 0' }}>
-                                <Breadcrumb.Item>Years</Breadcrumb.Item>
-                                <Breadcrumb.Item>Freshman</Breadcrumb.Item>
+                                <Breadcrumb.Item>{pathItem1}</Breadcrumb.Item>
+                                <Breadcrumb.Item>{pathItem2}</Breadcrumb.Item>
                                 <Breadcrumb.Item>Intro to Computer Eng. and Problem Solving - CPRE 185</Breadcrumb.Item>
                                 <Breadcrumb.Item>Word Builder - Lab 9</Breadcrumb.Item>
                             </Breadcrumb>

@@ -46,6 +46,9 @@ export default class CPRE288 extends React.Component {
     render() {
         let page;
         let width;
+        let pathItem1 = "default";
+        let pathItem2 = "default";
+
         if (this.state.currentPage === "Home") {
             return <Redirect to={"/Home"}/>
         }
@@ -57,6 +60,15 @@ export default class CPRE288 extends React.Component {
         }
         else if (this.state.currentPage === "Lab6") {
             page = <Lab6/>
+        }
+
+        if (this.props.location.state.path === "Categories/LowLevel") {
+            pathItem1 = "Categories"
+            pathItem2 = "Low Level"
+        }
+        else if (this.props.location.state.path === "Years/Sophomore") {
+            pathItem1 = "Years"
+            pathItem2 = "Sophomore"
         }
 
         if (this.state.collapsed === true) {
@@ -113,24 +125,24 @@ export default class CPRE288 extends React.Component {
 
                         {this.state.currentPage === "FinalProject" && 
                             <Breadcrumb style={{ margin: '16px 0' }}>
-                                <Breadcrumb.Item>Years</Breadcrumb.Item>
-                                <Breadcrumb.Item>Sophomore</Breadcrumb.Item>
+                                <Breadcrumb.Item>{pathItem1}</Breadcrumb.Item>
+                                <Breadcrumb.Item>{pathItem2}</Breadcrumb.Item>
                                 <Breadcrumb.Item>Embedded Systems - CPRE 288</Breadcrumb.Item>
                                 <Breadcrumb.Item>Java GUI - Final Project</Breadcrumb.Item>
                             </Breadcrumb>
                         }
                         {this.state.currentPage === "Lab5" && 
                             <Breadcrumb style={{ margin: '16px 0' }}>
-                                <Breadcrumb.Item>Years</Breadcrumb.Item>
-                                <Breadcrumb.Item>Sophomore</Breadcrumb.Item>
+                                <Breadcrumb.Item>{pathItem1}</Breadcrumb.Item>
+                                <Breadcrumb.Item>{pathItem2}</Breadcrumb.Item>
                                 <Breadcrumb.Item>Embedded Systems - CPRE 288</Breadcrumb.Item>
                                 <Breadcrumb.Item>Implementing WiFi Connectivity - Lab 5</Breadcrumb.Item>
                             </Breadcrumb>
                         }
                         {this.state.currentPage === "Lab6" && 
                             <Breadcrumb style={{ margin: '16px 0' }}>
-                                <Breadcrumb.Item>Years</Breadcrumb.Item>
-                                <Breadcrumb.Item>Sophomore</Breadcrumb.Item>
+                                <Breadcrumb.Item>{pathItem1}</Breadcrumb.Item>
+                                <Breadcrumb.Item>{pathItem2}</Breadcrumb.Item>
                                 <Breadcrumb.Item>Embedded Systems - CPRE 288</Breadcrumb.Item>
                                 <Breadcrumb.Item>Analog to Digital Converter - Lab 6</Breadcrumb.Item>
                             </Breadcrumb>

@@ -39,6 +39,9 @@ export default class CPRE381 extends React.Component {
     render() {
         let page;
         let width;
+        let pathItem1 = "default";
+        let pathItem2 = "default";
+
         if (this.state.currentPage === "Home") {
             return <Redirect to={"/Home"}/>
         }
@@ -47,6 +50,15 @@ export default class CPRE381 extends React.Component {
         }
         else if (this.state.currentPage === "ProjectB") {
             page = <ProjectB/>
+        }
+
+        if (this.props.location.state.path === "Categories/LowLevel") {
+            pathItem1 = "Categories"
+            pathItem2 = "Low Level"
+        }
+        else if (this.props.location.state.path === "Years/Junior") {
+            pathItem1 = "Years"
+            pathItem2 = "Junior"
         }
 
         if (this.state.collapsed === true) {
@@ -100,16 +112,16 @@ export default class CPRE381 extends React.Component {
 
                         {this.state.currentPage === "ProjectA" && 
                             <Breadcrumb style={{ margin: '16px 0' }}>
-                                <Breadcrumb.Item>Years</Breadcrumb.Item>
-                                <Breadcrumb.Item>Junior</Breadcrumb.Item>
+                                <Breadcrumb.Item>{pathItem1}</Breadcrumb.Item>
+                                <Breadcrumb.Item>{pathItem2}</Breadcrumb.Item>
                                 <Breadcrumb.Item>Computer Architecture - CPRE 381</Breadcrumb.Item>
                                 <Breadcrumb.Item>Single-Cycle MIPS Processor - Project A</Breadcrumb.Item>
                             </Breadcrumb>
                         }
                         {this.state.currentPage === "ProjectB" && 
                             <Breadcrumb style={{ margin: '16px 0' }}>
-                                <Breadcrumb.Item>Years</Breadcrumb.Item>
-                                <Breadcrumb.Item>Junior</Breadcrumb.Item>
+                                <Breadcrumb.Item>{pathItem1}</Breadcrumb.Item>
+                                <Breadcrumb.Item>{pathItem2}</Breadcrumb.Item>
                                 <Breadcrumb.Item>Computer Architecture - CPRE 381</Breadcrumb.Item>
                                 <Breadcrumb.Item>32-bit MIPS Pipline Processor - Project B</Breadcrumb.Item>
                             </Breadcrumb>
