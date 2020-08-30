@@ -1,0 +1,32 @@
+Q1:
+match (t:Tweet) <- [:POSTED] - (u:User) where t.year = '2016' and t.month = '1' return t.retweet_count, t.text, u.screen_name, u.category, u.sub_category order by toInteger(t.retweet_count) desc limit 10
+
+Q3:
+match (u:User) - [:POSTED] -> (t:Tweet) <- [:TAGGED] - (h:Hashtag) where t.year = '2016' and u.location <> "na" and size(h.name) > 0 return toUpper(h.name), collect(distinct(u.location)), size(collect(distinct(u.location))) as num order by num desc limit 10
+
+Q6:
+match (u:User) - [:POSTED] -> (t:Tweet) <- [:TAGGED] - (h:Hashtag) with u, t, h order by toInteger(u.followers) desc where h.name in ['HappyNewYear','NewYear','NewYears','NewYearsDay'] return distinct u.screen_name, u.location limit 12
+
+Q9:
+match (u:User) where u.sub_category = 'GOP' return u.screen_name, u.category, u.followers order by toInteger(u.followers) desc limit 10
+
+Q10:
+match (s:State) - [:FROM] - (u:User) - [:POSTED] - (t:Tweet) - [:TAGGED] - (h:Hashtag) where u.location in ["Ohio", "Alaska", "Alabama"] and t.month = '1' and t.year = '2016' return toUpper(h.name), collect(distinct s.name)
+
+Q11:
+match (u:User) - [:POSTED] - (t:Tweet) - [:TAGGED] - (h:Hashtag) where t.month = '1' and t.year = '2016' and (u.sub_category = 'GOP' or u.sub_category = 'democrat') and h.name = 'Ohio' and u.location = 'Ohio' return t.text, h.name, u.screen_name, u.sub_category limit 5
+
+Q15:
+match(s:State)<-[:FROM]-(u:User)-[:POSTED]->(t:Tweet)-[:URL_USED]->(url:Ur) 
+where u.sub_category=~'GOP' and t.year='2016' and t.month ='1'
+return u.screen_name as user_screenname, s.name as state, collect(url.url) as urls limit 10;
+
+Q18:
+MATCH(user:User)<-[:MENTIONED]-(t:Tweet)-[:POSTED]-(u:User) where not(user.name= '') and u.sub_category='GOP' and t.month='1' and t.year='2016' with user, count(t)as cnt, collect(DISTINCT (u.screen_name))as List_ofmentionedUsers return user.screen_name as mentioneduser,user.location as state_ofmentionedUser, List_ofmentionedUsers order by cnt desc limit 5;
+
+Q23:
+match(h:Hashtag)-[tag:TAGGED]->(t:Tweet)<-[:POSTED]-(u:User) 
+where u.sub_category=~'GOP' and t.year='2016' and t.month in ['1','2','3'] 
+return h.name as hashtagName, count(tag) as TweetCount order by TweetCount desc limit
+
+

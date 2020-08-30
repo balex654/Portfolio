@@ -19,15 +19,10 @@ export default class App extends React.Component {
           </Route>
 
           <Route path="/ComS227" render={(props) => <ComS227 {...props}/>}/>
-
           <Route path="/CPRE185" render={(props) => <CPRE185 {...props}/>}/>
-
           <Route path="/ComS228" render={(props) => <ComS228 {...props}/>}/>
-
           <Route path="/CPRE288" render={(props) => <CPRE288 {...props}/>}/>
-
           <Route path="/ComS311" render={(props) => <ComS311 {...props}/>}/>
-
           <Route path="/CPRE381" render={(props) => <CPRE381 {...props}/>}/>
 
         </Switch>
